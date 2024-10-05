@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     List<Letra> cliques = new ArrayList<>();
     TextView saida;
+    BotaoCheck botaoCheck;
+
 
     // Define o layout da tela
     @SuppressLint("MissingInflatedId")
@@ -40,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnTrash = findViewById(R.id.trash);
         Button btnCheck = findViewById(R.id.conf);
+
+        botaoCheck = new BotaoCheck(btnCheck);
+        botaoCheck.configurarOnClickListener(this);
+
 
         //Criando Array De Botões e associando Ids
         int[] buttonIds = {R.id.buttonA, R.id.buttonB, R.id.buttonC, R.id.buttonD, R.id.buttonE,
@@ -63,15 +68,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        // Definindo o listener para o botão de confirmação (check)
-        btnCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String textoCompleto = saida.getText().toString();
-                Log.i("btnCheck", "Texto completo: " + textoCompleto);
-                Toast.makeText(MainActivity.this, "Texto: " + textoCompleto, Toast.LENGTH_LONG).show();
-            }
-        });
 
         // Definindo o listener para o botão de apagar (trash)
         btnTrash.setOnClickListener(new View.OnClickListener() {
@@ -100,5 +96,10 @@ public class MainActivity extends AppCompatActivity {
         }
         saida.setText(texto.toString());
     }
+
+    public TextView getSaida(){
+        return  saida;
+    }
+
 
 }
