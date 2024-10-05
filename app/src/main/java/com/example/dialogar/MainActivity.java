@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     List<Letra> cliques = new ArrayList<>();
     TextView saida;
     BotaoCheck botaoCheck;
+    BotaoTrash botaoTrash;
 
 
     // Define o layout da tela
@@ -42,8 +43,13 @@ public class MainActivity extends AppCompatActivity {
         Button btnTrash = findViewById(R.id.trash);
         Button btnCheck = findViewById(R.id.conf);
 
+        //Estrtura feita de forma horrosa por culpa de um merda <3
         botaoCheck = new BotaoCheck(btnCheck);
+        botaoTrash = new BotaoTrash(btnTrash);
+
+        //Configurar comportamento
         botaoCheck.configurarOnClickListener(this);
+        botaoTrash.configurarOnClickListener(this);
 
 
         //Criando Array De Botões e associando Ids
@@ -69,15 +75,6 @@ public class MainActivity extends AppCompatActivity {
         };
 
 
-        // Definindo o listener para o botão de apagar (trash)
-        btnTrash.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i("btnTrash", "Apagar");
-                cliques.clear();  // Limpa a lista de cliques
-                atualizarTextView(); // Atualiza a TextView para refletir a lista vazia
-            }
-        });
 
         // Inicializando os botões e atribuindo o listener
         for (int i = 0; i < buttonIds.length; i++) {
@@ -88,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     // Atualizar cada valor de acordo com a letra
-    private void atualizarTextView(){
+    public void atualizarTextView(){
         StringBuilder texto = new StringBuilder();
         for (Letra letra: cliques) {
             texto.append(letra.getValor()); //Obtendo o valor de cada letra, usando a classe "Letra"
@@ -98,8 +95,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public TextView getSaida(){
+
         return  saida;
+
     }
 
+    public void limparCliques(){
+
+        cliques.clear();
+
+    }
 
 }
