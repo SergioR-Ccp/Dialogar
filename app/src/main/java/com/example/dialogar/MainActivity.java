@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<String> cliques = new ArrayList<>();
+    List<Letra> cliques = new ArrayList<>();
     TextView saida;
 
     // Define o layout da tela
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 Button clickedButton = (Button) view;
                 String buttonText = clickedButton.getText().toString();
                 Log.i("Button Clicked", buttonText);
-                cliques.add(buttonText);
+                cliques.add(new Letra(buttonText));
                 atualizarTextView(); // Chama o método para atualizar a TextView
             }
         };
@@ -91,11 +91,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
+    // Atualizar cada valor de acordo com a letra
     private void atualizarTextView(){
         StringBuilder texto = new StringBuilder();
-        for (String clique : cliques) {
-            texto.append(clique);
+        for (Letra letra: cliques) {
+            texto.append(letra.getValor()); //Obtendo o valor de cada letra, usando a classe "Letra"
+
         }
         saida.setText(texto.toString());
     }
