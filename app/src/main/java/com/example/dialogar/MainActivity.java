@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     TextView saida;
     BotaoCheck botaoCheck;
     BotaoTrash botaoTrash;
+    ImageView imagem;
+
+    // Mapeamento de palavras para imagens
+    HashMap <String, Integer> palavraImg = new HashMap<>();
 
 
     // Define o layout da tela
@@ -40,12 +47,20 @@ public class MainActivity extends AppCompatActivity {
         // Encontrando saída de texto
         saida = findViewById(R.id.textViewl);
 
+        imagem = findViewById(R.id.imageView2); // Para exibir a imagem
+
+
         Button btnTrash = findViewById(R.id.trash);
         Button btnCheck = findViewById(R.id.conf);
 
         //Estrtura feita de forma horrosa por culpa de um merda <3
         botaoCheck = new BotaoCheck(btnCheck);
         botaoTrash = new BotaoTrash(btnTrash);
+
+        //Mais um espaçamento de merda by Lucas Guima <====3
+        // Preencher o HashMap com palavras e IDs de imagens
+        palavraImg.put("macaco", R.drawable.monkey);
+
 
         //Configurar comportamento
         botaoCheck.configurarOnClickListener(this);
@@ -83,7 +98,16 @@ public class MainActivity extends AppCompatActivity {
             buttons[i].setOnClickListener(buttonClickListener);
         }
 
-    }
+        // Configura o listener do botão Check para confirmar a palavra e exibir a imagem
+        btnCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String palavraFormada = obterPalavraFormada();
+                confirmarPalavra(palavraFormada);
+            }
+        });
+}
+
     // Atualizar cada valor de acordo com a letra
     public void atualizarTextView(){
         StringBuilder texto = new StringBuilder();
@@ -93,6 +117,26 @@ public class MainActivity extends AppCompatActivity {
         }
         saida.setText(texto.toString());
     }
+
+    // Obter a palavra formada com os cliques
+    public String obterPalavraFormada() {
+        StringBuilder texto = new StringBuilder();
+        for (Letra letra : cliques) {
+            texto.append(letra.getValor());
+        }
+        return texto.toString().toLowerCase();
+    }
+
+    // Confirmar a palavra e exibir a imagem correspondente
+    public void confirmarPalavra(String palavra) {
+        if (palavraImg.containsKey(palavra)) {
+            imagem.setImageResource(palavraImg.get(palavra));  // Exibir a imagem correspondente
+        } else {
+            Toast.makeText(this, "Palavra não encontrada!", Toast.LENGTH_SHORT).show();
+            imagem.setImageResource(0);  // Limpar a imagem se a palavra não for encontrada
+        }
+    }
+
 
     public TextView getSaida(){
 
