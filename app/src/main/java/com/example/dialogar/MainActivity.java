@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         // Preencher o HashMap com palavras e IDs de imagens
         palavraImg.put("macaco", R.drawable.monkey);
 
-
+//burro
         //Configurar comportamento
         botaoCheck.configurarOnClickListener(this);
         botaoTrash.configurarOnClickListener(this);
