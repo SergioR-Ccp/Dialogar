@@ -24,6 +24,7 @@ public class BotaoTrash {
                 Log.i("BotaoTrash", "Apagar: " + textoCompleto);
                 activity.limparCliques(); //Limpar listas de clicks no MAIN
                 activity.atualizarTextView();
+                activity.limparimagem();
 
             }
 

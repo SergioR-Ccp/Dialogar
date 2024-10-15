@@ -57,9 +57,22 @@ public class MainActivity extends AppCompatActivity {
         botaoCheck = new BotaoCheck(btnCheck);
         botaoTrash = new BotaoTrash(btnTrash);
 
+
         //Mais um espaçamento de merda by Lucas Guima <====3
         // Preencher o HashMap com palavras e IDs de imagens
         palavraImg.put("macaco", R.drawable.monkey);
+        palavraImg.put("passaro", R.drawable.bird);
+        palavraImg.put("casa", R.drawable.home);
+        palavraImg.put("comida", R.drawable.food);
+        palavraImg.put("rafael", R.drawable.rafa);
+        palavraImg.put("fernando", R.drawable.beiramar);
+        palavraImg.put("burro", R.drawable.burro);
+        palavraImg.put("jacare", R.drawable.jaca);
+        palavraImg.put("lucas", R.drawable.luquinha);
+        palavraImg.put("sergio", R.drawable.sergin );
+        palavraImg.put("rato", R.drawable.rat);
+        palavraImg.put("cachorro", R.drawable.dog);
+
 
 //burro
         //Configurar comportamento
@@ -147,6 +160,12 @@ public class MainActivity extends AppCompatActivity {
     public void limparCliques(){
 
         cliques.clear();
+
+    }
+
+    public void limparimagem(){
+        //Limpa imagem paizaooo
+        imagem.setImageResource(0);
 
     }
 
