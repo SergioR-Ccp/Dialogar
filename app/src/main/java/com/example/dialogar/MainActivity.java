@@ -46,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Encontrando saída de texto
         saida = findViewById(R.id.textViewl);
+        // Para exibir a imagem
+        imagem = findViewById(R.id.imageView2);
 
-        imagem = findViewById(R.id.imageView2); // Para exibir a imagem
-
-
+        // Botão de confirmar e apagar em pt-br mds
         Button btnTrash = findViewById(R.id.trash);
         Button btnCheck = findViewById(R.id.conf);
 
@@ -73,12 +73,9 @@ public class MainActivity extends AppCompatActivity {
         palavraImg.put("rato", R.drawable.rat);
         palavraImg.put("cachorro", R.drawable.dog);
 
-
-//burro
-        //Configurar comportamento
+        //Configurar comportamento (ação)
         botaoCheck.configurarOnClickListener(this);
         botaoTrash.configurarOnClickListener(this);
-
 
         //Criando Array De Botões e associando Ids
         int[] buttonIds = {R.id.buttonA, R.id.buttonB, R.id.buttonC, R.id.buttonD, R.id.buttonE,
@@ -107,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
         // Inicializando os botões e atribuindo o listener
         for (int i = 0; i < buttonIds.length; i++) {
             buttons[i] = findViewById(buttonIds[i]);
-
             buttons[i].setOnClickListener(buttonClickListener);
         }
 
@@ -154,13 +150,11 @@ public class MainActivity extends AppCompatActivity {
     public TextView getSaida(){
 
         return  saida;
-
     }
 
     public void limparCliques(){
 
         cliques.clear();
-
     }
 
     public void limparimagem(){
