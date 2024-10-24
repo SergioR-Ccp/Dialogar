@@ -5,15 +5,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class BotaoCheck {
-
-    private Button button;
+public class BotaoCheck extends BotaoBase {
 
     public BotaoCheck(Button button){
 
-        this.button = button;
+        super(button);
+
     }
 
+    @Override
     public void configurarOnClickListener(MainActivity activity) {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,10 +26,6 @@ public class BotaoCheck {
 
         });
 
-    }
-
-    public Button getButton() {
-        return button;
     }
 
 }

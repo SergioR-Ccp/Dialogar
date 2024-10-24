@@ -5,16 +5,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class BotaoTrash {
-
-    private Button button;
+public class BotaoTrash extends BotaoBase{
 
     public BotaoTrash(Button button){
 
-        this.button = button;
+        super(button);
+
     }
 
     //Metodo Apagar Palavra (COnfigurar Comportamento)
+
+    @Override
     public void configurarOnClickListener(MainActivity activity) {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,10 +31,6 @@ public class BotaoTrash {
 
         });
 
-    }
-
-    public Button getButton() {
-        return button;
     }
 
 }
