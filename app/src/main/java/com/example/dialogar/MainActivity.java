@@ -63,15 +63,31 @@ public class MainActivity extends AppCompatActivity {
         palavraImg.put("macaco", R.drawable.monkey);
         palavraImg.put("passaro", R.drawable.bird);
         palavraImg.put("casa", R.drawable.home);
-        palavraImg.put("comida", R.drawable.food);
-        palavraImg.put("rafael", R.drawable.rafa);
-        palavraImg.put("fernando", R.drawable.beiramar);
+        palavraImg.put("comida", R.drawable.comida);
+        palavraImg.put("alegria", R.drawable.alegria);
+        palavraImg.put("sono", R.drawable.sono);
         palavraImg.put("burro", R.drawable.burro);
         palavraImg.put("jacare", R.drawable.jaca);
-        palavraImg.put("lucas", R.drawable.luquinha);
-        palavraImg.put("sergio", R.drawable.sergin );
+        palavraImg.put("nojo", R.drawable.nojo);
+        palavraImg.put("ansiedade", R.drawable.ansiedade );
+        palavraImg.put("ansioso", R.drawable.ansiedade );
         palavraImg.put("rato", R.drawable.rat);
         palavraImg.put("cachorro", R.drawable.dog);
+        palavraImg.put("fome", R.drawable.fome);
+        palavraImg.put("nao", R.drawable.nao);
+        palavraImg.put("tristeza", R.drawable.triste);
+        palavraImg.put("triste", R.drawable.triste);
+        palavraImg.put("cavalo", R.drawable.cavalo);
+        palavraImg.put("tv", R.drawable.tv);
+        palavraImg.put("sim", R.drawable.sim);
+        palavraImg.put("medo", R.drawable.medo);
+        palavraImg.put("raiva", R.drawable.raiva);
+        palavraImg.put("bravo", R.drawable.raiva);
+        palavraImg.put("vergonha", R.drawable.vergonha);
+        palavraImg.put("preguica", R.drawable.preguica);
+        palavraImg.put("familia", R.drawable.familia);
+
+
 
         //Configurar comportamento (ação)
         botaoCheck.configurarOnClickListener(this);
@@ -115,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 confirmarPalavra(palavraFormada);
             }
         });
-}
+    }
 
     // Atualizar cada valor de acordo com a letra
     public void atualizarTextView(){
